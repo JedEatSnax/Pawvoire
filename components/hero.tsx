@@ -31,7 +31,7 @@ export default function Hero() {
                 <a
                   key={link}
                   href={`#${link.toLowerCase().replace(/ /g, "-")}`}
-                  className="flex min-h-[40px] items-center transition-colors hover:text-black"
+                  className="flex min-h-10 items-center transition-colors hover:text-black"
                 >
                   {link}
                 </a>
@@ -40,7 +40,7 @@ export default function Hero() {
           </div>
 
           <div className="flex items-center gap-6">
-            <button className="group hidden min-h-[40px] items-center gap-1.5 text-[14px] font-medium text-[#41483E] transition-colors hover:text-black sm:flex">
+            <button className="group hidden min-h-10 items-center gap-1.5 text-[14px] font-medium text-[#41483E] transition-colors hover:text-black sm:flex">
               <Globe className="h-4 w-4 opacity-70" />
               <span>EN</span>
               <ChevronDown className="h-3.5 w-3.5 opacity-50 transition-opacity group-hover:opacity-100" />
@@ -48,7 +48,7 @@ export default function Hero() {
             <button
               type="button"
               onClick={() => router.push("/login")}
-              className="flex min-h-[40px] items-center gap-2 rounded-sm bg-[#343F33] px-5 py-2.5 text-[14px] font-medium text-white shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition-all will-change-transform hover:bg-[#252D24] active:scale-[0.96]"
+              className="flex min-h-10 items-center gap-2 rounded-sm bg-[#343F33] px-5 py-2.5 text-[14px] font-medium text-white shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition-all will-change-transform hover:bg-[#252D24] active:scale-[0.96]"
             >
               Log In
               <ArrowRight className="h-4 w-4" />
@@ -73,12 +73,12 @@ export default function Hero() {
               </p>
 
               <div className="flex flex-wrap items-center gap-6">
-                <button className="group flex min-h-[40px] items-center gap-2 rounded-sm bg-[#343F33] px-7 py-4 text-[16px] font-medium text-white shadow-[0_4px_14px_rgba(0,0,0,0.1)] transition-all will-change-transform hover:bg-[#252D24] active:scale-[0.96]">
+                <button className="group flex min-h-10 items-center gap-2 rounded-sm bg-[#343F33] px-7 py-4 text-[16px] font-medium text-white shadow-[0_4px_14px_rgba(0,0,0,0.1)] transition-all will-change-transform hover:bg-[#252D24] active:scale-[0.96]">
                   Discover More
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </button>
 
-                <button className="group flex min-h-[40px] items-center gap-3 rounded-sm px-4 py-4 text-[16px] font-medium text-[#2C3329] transition-all will-change-transform hover:opacity-80 active:scale-[0.96]">
+                <button className="group flex min-h-10 items-center gap-3 rounded-sm px-4 py-4 text-[16px] font-medium text-[#2C3329] transition-all will-change-transform hover:opacity-80 active:scale-[0.96]">
                   Watch Demo
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#2C3329] text-white shadow-md transition-transform group-hover:scale-105">
                     <Play className="ml-0.5 h-4 w-4" fill="currentColor" />
