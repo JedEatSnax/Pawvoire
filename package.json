@@ -1,7 +1,6 @@
 {
   "name": "Pawvoire",
   "version": "0.1.0",
-  "packageManager": "pnpm@11.15.1",
   "type": "module",
   "author": "JedEatSnax (https://github.com/JedEatSnax)",
   "scripts": {
