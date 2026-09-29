@@ -2,10 +2,13 @@ import { env } from "cloudflare:workers";
 import { betterAuth } from "better-auth/minimal";
 import { prismaAdapter } from "@better-auth/prisma-adapter";
 import { getPrisma } from "./prisma";
+// import { Resend } from "resend";
 import { openAPI, haveIBeenPwned, bearer, jwt } from "better-auth/plugins";
+import { nextCookies } from "better-auth/next-js";
 
 const authUrl = env.BETTER_AUTH_URL;
 const allowedOrigin = env.ALLOWED_ORIGIN;
+// const resend = new Resend(env.RESEND_API_KEY as string);
 
 export const auth = betterAuth({
   appName: "LINAW",
@@ -15,13 +18,6 @@ export const auth = betterAuth({
   database: prismaAdapter(getPrisma(), {
     provider: "postgresql",
   }),
-  /**
-  https://better-auth.com/docs/concepts/database#redis-storage
-  secondaryStorage: redisStorage({
-		client: redis,
-		keyPrefix: "better-auth:", // optional, defaults to "better-auth:"
-	}),
-   */
   secret: env.BETTER_AUTH_SECRET,
   advanced: {
     database: {
@@ -46,13 +42,26 @@ export const auth = betterAuth({
   useSecureCookies: authUrl.startsWith("https://"),
   emailAndPassword: {
     enabled: true,
-    autoSignIn: false,
+    autoSignIn: true,
   },
+  /*
+  emailVerification: {
+    sendVerificationEmail: async ({ user, url }) => {
+      await resend.emails.send({
+        from: `${process.env.EMAIL_SENDER_NAME} <${process.env.EMAIL_SENDER_ADDRESS}>`,
+        to: user.email,
+        subject: "Verify your email",
+        react: VerifyEmail({ username: user.name, verifyUrl: url }),
+      });
+    },
+    sendOnSignUp: true,
+  },
+  */
   plugins: [
     openAPI(),
     haveIBeenPwned({
       customPasswordCompromisedMessage:
-        "This password was exposed in a public data breach. Please create a strong and unique password.",
+        "This password was exposed in a public data breach. Please create a stronger password.",
     }),
     bearer(),
     jwt({
@@ -67,6 +76,7 @@ export const auth = betterAuth({
         }),
       },
     }),
+    nextCookies(),
   ],
 });
 

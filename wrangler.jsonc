@@ -4,7 +4,7 @@
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "Pawvoire",
+  "name": "pawvoire",
   "compatibility_date": "2026-09-26",
   "main": "vinext/server/fetch-handler",
   "assets": {
@@ -38,17 +38,12 @@
       "DATABASE_URL_UNPOOLED",
       "BETTER_AUTH_SECRET",
       "BETTER_AUTH_URL",
+      "RESEND_API_KEY",
     ],
   },
   "env": {
     //ONLY APPLIES TO SPECIFIED ENVIRONMENTS
     "local": {
-      "routes": [
-        {
-          "pattern": "http://localhost:8787/api",
-          "zone_name": "http://localhost:8787/api",
-        },
-      ],
       "secrets": {
         "required": [
           "ALLOWED_ORIGIN",
@@ -56,6 +51,7 @@
           "DATABASE_URL_UNPOOLED",
           "BETTER_AUTH_SECRET",
           "BETTER_AUTH_URL",
+          "RESEND_API_KEY",
         ],
       },
     },
@@ -67,6 +63,7 @@
           "DATABASE_URL_UNPOOLED",
           "BETTER_AUTH_SECRET",
           "BETTER_AUTH_URL",
+          "RESEND_API_KEY",
         ],
       },
     },

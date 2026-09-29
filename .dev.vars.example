@@ -2,3 +2,4 @@ BETTER_AUTH_SECRET=
 BETTER_AUTH_URL=
 DATABASE_URL=postgresql://user:password@localhost:5432/dbname?uselibpqcompat=true&sslmode=require
 DATABASE_URL_UNPOOLED=postgresql://user:password@localhost:5432/dbname?uselibpqcompat=true&sslmode=require
+RESEND_API_KEY=
